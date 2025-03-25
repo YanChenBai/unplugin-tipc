@@ -1,0 +1,44 @@
+{
+  "name": "@byc/unplugin-tipc",
+  "version": "0.0.1",
+  "packageManager": "pnpm@9.15.9",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "exports": {
+    ".": {
+      "dev": "./core/index.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./dist/index.d.ts",
+        "./dist/index.d.mts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint . --fix",
+    "pkg:publish": "pnpm build & pnpm publish"
+  },
+  "dependencies": {
+    "oxc-parser": "^0.61.2",
+    "unplugin-utils": "^0.2.4"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.11.0",
+    "@rsbuild/core": "^1.2.19",
+    "@types/node": "^22.13.13",
+    "eslint": "^9.23.0",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.2"
+  }
+}
