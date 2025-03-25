@@ -7,17 +7,13 @@ settings:
 importers:
 
   .:
-    dependencies:
-      oxc-parser:
-        specifier: ^0.61.2
-        version: 0.61.2
-      unplugin-utils:
-        specifier: ^0.2.4
-        version: 0.2.4
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^4.11.0
         version: 4.11.0(@typescript-eslint/utils@8.28.0(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2))(@vue/compiler-sfc@3.5.13)(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2)
+      '@oxc-parser/binding-win32-x64-msvc':
+        specifier: ^0.61.0
+        version: 0.61.0
       '@rsbuild/core':
         specifier: ^1.2.19
         version: 1.2.19
@@ -27,12 +23,18 @@ importers:
       eslint:
         specifier: ^9.23.0
         version: 9.23.0(jiti@2.4.2)
+      oxc-parser:
+        specifier: ^0.61.2
+        version: 0.61.2
       tsup:
         specifier: ^8.4.0
         version: 8.4.0(jiti@2.4.2)(postcss@8.5.3)(typescript@5.8.2)(yaml@2.7.0)
       typescript:
         specifier: ^5.8.2
         version: 5.8.2
+      unplugin-utils:
+        specifier: ^0.2.4
+        version: 0.2.4
 
 packages:
 
@@ -472,10 +474,9 @@ packages:
     cpu: [arm64]
     os: [win32]
 
-  '@oxc-parser/binding-win32-x64-msvc@0.61.2':
-    resolution: {integrity: sha512-GtRVVz4DGF94MzlJ7xCIpITu6WKYdTqWc2cqMaJEzYDC8EsHjNkfbGhmawhyodFFuTfWqPAjJecIvvAnfMLpxw==}
+  '@oxc-parser/binding-win32-x64-msvc@0.61.0':
+    resolution: {integrity: sha512-o+LxW5Ndd3tN/CTMOASbdwSq1EBWGvtvNYJ/tYxo8dDxnOBLJjgjQYuIw0Oo8AP3LxZR3/YisFpjfSPpNdYXEg==}
     engines: {node: '>=14.0.0'}
-    cpu: [x64]
     os: [win32]
 
   '@oxc-project/types@0.61.2':
@@ -2509,8 +2510,7 @@ snapshots:
   '@oxc-parser/binding-win32-arm64-msvc@0.61.2':
     optional: true
 
-  '@oxc-parser/binding-win32-x64-msvc@0.61.2':
-    optional: true
+  '@oxc-parser/binding-win32-x64-msvc@0.61.0': {}
 
   '@oxc-project/types@0.61.2': {}
 
@@ -3905,7 +3905,6 @@ snapshots:
       '@oxc-parser/binding-linux-x64-musl': 0.61.2
       '@oxc-parser/binding-wasm32-wasi': 0.61.2
       '@oxc-parser/binding-win32-arm64-msvc': 0.61.2
-      '@oxc-parser/binding-win32-x64-msvc': 0.61.2
 
   p-limit@3.1.0:
     dependencies:

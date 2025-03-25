@@ -8,8 +8,12 @@ export default defineConfig({
   entry: {
     index: 'core/index.ts',
   },
-  external: ['@rsbuild/core'],
-  format: ['esm', 'cjs'],
+  external: [
+    '@rsbuild/core',
+    'oxc-parser',
+    'unplugin-utils',
+  ],
+  format: ['esm'],
   sourcemap: isDev,
   minify: false,
   splitting: true,
