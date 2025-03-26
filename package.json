@@ -26,18 +26,25 @@
   "scripts": {
     "build": "tsup",
     "lint": "eslint . --fix",
-    "pkg:publish": "pnpm build & pnpm publish"
+    "pkg:publish": "pnpm build & pnpm publish",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@byc/tipc": "^0.1.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.11.0",
-    "@oxc-parser/binding-win32-x64-msvc": "^0.61.0",
+    "@oxc-parser/binding-win32-x64-msvc": "^0.61.2",
     "@rsbuild/core": "^1.2.19",
     "@types/node": "^22.13.13",
+    "@vitest/coverage-v8": "2.1.4",
     "eslint": "^9.23.0",
     "oxc-parser": "^0.61.2",
     "tsup": "^8.4.0",
     "typescript": "^5.8.2",
-    "unplugin-utils": "^0.2.4"
+    "unplugin-utils": "^0.2.4",
+    "vitest": "^3.0.9"
   },
   "publishConfig": {
     "access": "public",
