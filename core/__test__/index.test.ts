@@ -1,4 +1,5 @@
-import { describe, expect, it } from 'vitest'
+import type { SchemaMapType } from '../types'
+import { beforeAll, describe, expect, it } from 'vitest'
 import { generateImport, searchDefineSchema } from '../utils'
 
 const testCode = `
@@ -21,9 +22,13 @@ const schemaTestCases = [
   { name: 'Example7', exportName: 'default', handler: false, listener: false },
 ]
 
+const map = new Map<string, SchemaMapType>()
+
+beforeAll(() => map.clear())
+
 describe('查找 schema', () => {
   it('查找 schema', () => {
-    const result = searchDefineSchema(testCode, 'test.ts')
+    const result = searchDefineSchema(testCode, 'test.ts', map)
 
     expect(result.size).toBe(7)
   })
@@ -31,7 +36,7 @@ describe('查找 schema', () => {
   it.each(schemaTestCases)(
     '测试 %o',
     ({ name, exportName, handler, listener }) => {
-      const result = searchDefineSchema(testCode, 'test.ts')
+      const result = searchDefineSchema(testCode, 'test.ts', map)
       const schemaMap = result.get(name)
 
       expect(schemaMap?.exportName).toBe(exportName)

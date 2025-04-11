@@ -43,9 +43,8 @@ function getSchemaInfo(node: CallExpression) {
   }
 }
 
-export function searchDefineSchema(code: string, resourcePath: string) {
+export function searchDefineSchema(code: string, resourcePath: string, map: Map<string, SchemaMapType>) {
   const result = oxc.parseSync(resourcePath, code)
-  const map = new Map<string, SchemaMapType>()
 
   for (const decl of result.program.body) {
     // export named

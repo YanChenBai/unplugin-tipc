@@ -16,10 +16,10 @@ export default function (options: Options = {}): RsbuildPlugin {
       const rootPath = api.context.rootPath
       const { dtsFileName, dtsDir } = options
 
-      let map = new Map<string, SchemaMapType>()
+      const map = new Map<string, SchemaMapType>()
 
       api.transform({ test: /\.ts$/ }, ({ code, resourcePath }) => {
-        map = searchDefineSchema(code, resourcePath)
+        searchDefineSchema(code, resourcePath, map)
         return code
       })
 
