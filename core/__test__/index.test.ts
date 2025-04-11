@@ -49,16 +49,16 @@ describe('查找 schema', () => {
 describe('生成 import', () => {
   it('生成默认 import', () => {
     const result = generateImport('filePath')
-    expect(result).toBe(`typeof import('filePath')['default']`)
+    expect(result).toBe(`typeof import('./filePath')['default']`)
   })
 
   it('生成嵌套的 import', () => {
     const result = generateImport('filePath', ['main', 'name'])
-    expect(result).toBe(`typeof import('filePath')['main']['name']`)
+    expect(result).toBe(`typeof import('./filePath')['main']['name']`)
   })
 
   it('边界测试: 传入空数组返回默认导出', async () => {
     const result = generateImport('filePath', [] as any)
-    expect(result).toBe(`typeof import('filePath')['default']`)
+    expect(result).toBe(`typeof import('./filePath')['default']`)
   })
 })

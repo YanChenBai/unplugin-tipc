@@ -101,7 +101,7 @@ export function generateImport(filePath: string, exports: string[] = ['default']
     exports.push('default')
 
   const accessPath = exports.map(item => `['${item}']`)
-  return `typeof import('${normalizePath(filePath)}')${accessPath.join('')}` as const
+  return `typeof import('./${normalizePath(filePath)}')${accessPath.join('')}` as const
 }
 
 export function generateDts(rootPath: string, map: Map<string, SchemaMapType>) {
@@ -113,11 +113,11 @@ export function generateDts(rootPath: string, map: Map<string, SchemaMapType>) {
   for (const { name, resourcePath, exportName, handler, listener } of list) {
     const from = path.relative(rootPath, resourcePath)
     if (handler) {
-      invokeExpose.push(`${name}: ${generateImport(from, [exportName, 'handler'])}`)
+      invokeExpose.push(`${name}: ${generateImport(from, [exportName, 'handlers'])}`)
     }
 
     if (listener) {
-      listenerExpose.push(`${name}: ${generateImport(from, [exportName, 'listener'])}`)
+      listenerExpose.push(`${name}: ${generateImport(from, [exportName, 'listeners'])}`)
     }
   }
 
